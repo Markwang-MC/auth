@@ -1,7 +1,11 @@
 import jwt from 'jsonwebtoken';
 export default function handler(req, res) {
   let token = req.headers.token
-  const decoded = jwt.verify(token,'secret_key');
-  if (decoded) res.end({status:200,decoded})
-  else res.end({status:403})
+  try {
+    const decoded = jwt.verify(token,'secret_key');
+    res.end(JSON.stringify({isAuthenticated:true,users: decoded}))
+  } catch (e) {
+    res.end(JSON.stringify({isAuthenticated:false,users: null}))
+
+  }
 }
