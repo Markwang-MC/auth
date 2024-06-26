@@ -1,12 +1,8 @@
-import {useEffect} from 'react'
-import {useSession} from './sessionprovider'
+import {useState} from 'react'
+import useSession from './usesession'
 export default function Login(){
   const [session, setSession] = useSession();
-
-  useEffect(()=>{
-    // console.log(session);
-  },[session])
-
+  // const [session, setSession] = useState(0);
 
   const handleLogin = () => {
     fetch('api/login', {
@@ -17,9 +13,9 @@ export default function Login(){
         password: '1234567',
       },
     })
-    .then((response) => response.text())
+    .then((response) => response.json())
     .then((data)=>{
-      setSession(JSON.parse(data));
+      setSession(data);
     })
 
 

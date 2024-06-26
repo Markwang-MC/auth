@@ -1,6 +1,8 @@
-import {useSession} from './sessionprovider'
+import {useState} from 'react'
+import useSession from './usesession'
 export default function ProtectedComponent() {
   const [session] = useSession();
+  // const [session, setSession] = useState(0);
 
   if (!session.isAuthenticated) {
     return <div>请先登录</div>;
