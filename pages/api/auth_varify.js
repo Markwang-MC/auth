@@ -7,7 +7,7 @@ export default function handler(req, res) {
   try {
     const decoded = jwt.verify(token,auth_key);
     console.log('111111111',decoded);
-    res.end(JSON.stringify({isAuthenticated:true,users: decoded}))
+    res.end(JSON.stringify({isAuthenticated:true,users: decoded.user}))
   } catch (e) {
     console.log('2222222',e);
 
