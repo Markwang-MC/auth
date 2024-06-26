@@ -1,7 +1,7 @@
 import {useRouter} from 'next/router'
 export default function Auth() {
   const {query} = useRouter()
-  const {website,port} = query
+  const {url} = query
   return (
     <div>
       <form onSubmit={(e)=>{
@@ -17,7 +17,7 @@ export default function Auth() {
         })
         .then((res)=>res.json())
         .then((data)=>{
-          if (data.status==200) window.location.href=''
+          if (data.status==200) window.location.href=`${url}?token=${data.token}`
         })
       }}>
         <input name='user' placeholder='username'/>
