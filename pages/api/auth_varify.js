@@ -1,6 +1,7 @@
 import jwt from 'jsonwebtoken';
 export default function handler(req, res) {
   let token = req.headers.token
+  console.log({token});
   try {
     const decoded = jwt.verify(token,'secret_key');
     console.log('111111111',decoded);
