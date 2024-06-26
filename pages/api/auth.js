@@ -8,13 +8,13 @@ export default function handler(req, res) {
   }
   let {user,password} = req.headers
   if (!users[user]) {
-    res.end({status:404})
+    res.end(JSON.stringify({isAuthenticated: false,token: null}))
     return
   }
   if (users[user]==password) {
     const token = sign({user},'auth_key')
-    res.end({status:200,token})
+    res.end(JSON.stringify({isAuthenticated: true,token})})
     return;
   }
-  res.end({status:400})
+  res.end(JSON.stringify({isAuthenticated: false,token: null}))
 }

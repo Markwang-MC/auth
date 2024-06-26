@@ -17,7 +17,7 @@ export default function Auth() {
         })
         .then((res)=>res.json())
         .then((data)=>{
-          if (data.status==200) window.location.href=`${url}?token=${data.token}`
+          if (data.isAuthenticated) window.location.href=`${url}?token=${data.token}`
         })
       }}>
         <input name='user' placeholder='username'/>
