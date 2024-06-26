@@ -13,7 +13,7 @@ export default function handler(req, res) {
   }
   if (users[user]==password) {
     const token = sign({user},'auth_key')
-    res.end(JSON.stringify({isAuthenticated: true,token})})
+    res.end(JSON.stringify({isAuthenticated: true,token}))
     return;
   }
   res.end(JSON.stringify({isAuthenticated: false,token: null}))
