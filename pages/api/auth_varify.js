@@ -1,6 +1,7 @@
 import jwt from 'jsonwebtoken';
 export default function handler(req, res) {
-  let auth_key = process.env
+  let auth_key = process.env.auth_key
+  console.log({auth_key});
   let token = req.headers.token
   console.log({token});
   try {
