@@ -6,6 +6,8 @@ export default function handler(req, res) {
     console.log('111111111',decoded);
     res.end(JSON.stringify({isAuthenticated:true,users: decoded}))
   } catch (e) {
+    console.log('2222222',e);
+
     res.end(JSON.stringify({isAuthenticated:false,users: null}))
 
   }
