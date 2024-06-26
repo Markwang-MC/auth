@@ -1,9 +1,10 @@
 import jwt from 'jsonwebtoken';
 export default function handler(req, res) {
+  let auth_key = process.env
   let token = req.headers.token
   console.log({token});
   try {
-    const decoded = jwt.verify(token,'secret_key');
+    const decoded = jwt.verify(token,auth_key);
     console.log('111111111',decoded);
     res.end(JSON.stringify({isAuthenticated:true,users: decoded}))
   } catch (e) {

@@ -12,7 +12,9 @@ export default function handler(req, res) {
     return
   }
   if (users[user]==password) {
-    const token = sign({user},'auth_key')
+    let auth_key = process.env
+
+    const token = sign({user},auth_key)
     res.end(JSON.stringify({isAuthenticated: true,token}))
     return;
   }
