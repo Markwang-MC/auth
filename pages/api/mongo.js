@@ -9,7 +9,11 @@ export default async function handler(req, res) {
         const data = await collection.find().toArray();
         console.log("this is user table: ",data);
         return data
-      } finally {
+      } 
+      catch (e){
+        console.log('err: ',e)
+      }
+      finally {
         console.log('finally')
         await client.close();
       }
