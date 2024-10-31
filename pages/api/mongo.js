@@ -8,7 +8,7 @@ export default async function handler(req, res) {
         let collection = await client.db("weller").collection('customer');
         const data = await collection.find().toArray();
         console.log("this is user table: ",data);
-        return data
+        res.end(JSON.stringify(data))
       } 
       catch (e){
         console.log('err: ',e)
@@ -16,6 +16,7 @@ export default async function handler(req, res) {
       finally {
         console.log('finally')
         await client.close();
+        
       }
      
 }
