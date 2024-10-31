@@ -1,7 +1,7 @@
 import { log } from "@/lib/indexdb/libs/uitils/log";
 import client from "@/lib/mongodb";
 export default async function handler(req, res) {
-    console.log('start---------')
+    console.log('start---------',client)
     try {
         await client.connect();
         console.log('链接成功')
