@@ -2,7 +2,7 @@ import client from "@/lib/mongodb";
 const crypto = require('crypto');
 
 import {generateToken,authenticateToken} from "@/lib/api/jwt";
-
+// type user task
 async function _read(req,res) {
     const token = req.headers['Authorization']
 

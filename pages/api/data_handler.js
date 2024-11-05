@@ -226,27 +226,7 @@ async function post(req,res) {
 export default async function handler(req,res) {
     if (req.method=='get'){
         get(req,res)
-        // switch (req.headers['Action']) {
-        //     case 'read':
-        //       // Code to execute if action is read
-        //       R_read(req,res)
-        //       break;
-        //     case 'delete':
-        //       // Code to execute if action is delete
-        //       _delete(req,res)
-        //       break;
-        //   }
         return
     }
     post(req,res)
-    // switch (req.headers['Action']) {
-    //     case 'create':
-    //       // Code to execute if action is create
-    //       _create(req,res)
-    //       break;
-    //     case 'update':
-    //       // Code to execute if action is update
-    //       _update(req,res)
-    //       break;
-    //   }
 }
